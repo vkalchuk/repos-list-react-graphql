@@ -2,6 +2,52 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+
+React app that renders the list of github repositories. Intial repos are displayed with search query `react`. User is able to perform search with their desired query. The number of repos shown per page is 5, if there are more repos available Load More button will be displayed.
+
+The project utilises GitHub Graphql API
+
+- [Docs](https://developer.github.com/v4/)
+- [Explorer](https://developer.github.com/v4/explorer/)
+
+If you would like to run the project locally, make sure you add your personal github token.
+
+```bash
+cp .env .env.local
+sed -i 's/PUT_YOUR_TOKEN_HERE/TOKEN_STRING/' .env.local
+```
+
+Replace TOKEN_STRING placeholder with your actual token.
+
+Next, run
+
+```bash
+npm install
+```
+
+and
+
+```bash
+npm start
+```
+
+to run the project locally.
+
+Alternatively you could use Docker
+
+```bash
+./docker_build.sh
+```
+
+to build the image and
+
+```bash
+docker-compose up
+```
+
+to run it.
+
 ## Available Scripts
 
 In the project directory, you can run:
