@@ -48,10 +48,7 @@ function App() {
     useLazyQuery(GET_REPOS, {
       notifyOnNetworkStatusChange: true,
       fetchPolicy: 'network-only',
-      onCompleted: data => {
-        console.log(data)
-        setRepositories(data)
-      },
+      onCompleted: data => setRepositories(data),
     })
 
   useEffect(() => {

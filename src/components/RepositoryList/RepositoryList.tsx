@@ -22,22 +22,31 @@ function RepositoryList({ repositories }: RepositoryListProps) {
           </tr>
         </thead>
         <tbody>
-          {repositories.map(({ node: repo }) => (
-            <tr key={repo.id}>
-              <td className='border p-2'>
-                <a
-                  className='text-blue-600 underline'
-                  href={repo.url}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  {repo.owner.login}/{repo.name}
-                </a>
-              </td>
-              <td className='border p-2'>{repo.stargazerCount}</td>
-              <td className='border p-2'>{repo.forkCount}</td>
-            </tr>
-          ))}
+          {repositories.map(({ node }) => {
+            if (!node || !node.owner || !node.owner.login) {
+              return null
+            }
+
+            const { id, name, stargazerCount, forkCount, url, owner } = node
+
+            return (
+              <tr key={id}>
+                <td className='border p-2'>
+                  <a
+                    className='text-blue-600 underline'
+                    href={url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    data-testid='repo-name'
+                  >
+                    {owner.login}/{name}
+                  </a>
+                </td>
+                <td className='border p-2'>{stargazerCount}</td>
+                <td className='border p-2'>{forkCount}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>

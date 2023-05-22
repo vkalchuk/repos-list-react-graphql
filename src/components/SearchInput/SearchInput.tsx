@@ -30,10 +30,12 @@ function SearchInput({ onSearch }: SearchInputProps) {
         value={searchQuery}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        data-testid='search-input'
       />
       <button
         className='px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700'
         onClick={handleSearch}
+        data-testid='search-btn'
       >
         Search
       </button>
