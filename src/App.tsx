@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NetworkStatus, useLazyQuery } from '@apollo/client'
 import { GET_REPOS } from './graphql/queries'
 import RepositoryList from './components/RepositoryList/RepositoryList'
